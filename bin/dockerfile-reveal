@@ -1,0 +1,6 @@
+#!/bin/env node
+const dockerfileReveal = require('../index')
+
+dockerfileReveal(...process.argv.slice(2))
+  .then(console.log)
+  .catch(console.err)

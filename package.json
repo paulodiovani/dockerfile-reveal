@@ -1,0 +1,14 @@
+{
+  "name": "dockerfile-reveal",
+  "version": "0.0.0",
+  "description": "A simple Node app to reveal Dockerfile (actually steps) commands from a Docker image",
+  "main": "index.js",
+  "bin": "bin/dockerfile-reveal",
+  "repository": "https://github.com/paulodiovani/dockerfile-reveal.git",
+  "author": "Paulo Diovani <paulo@diovani.com>",
+  "license": "MIT",
+  "private": false,
+  "engines": {
+    "node": "~6.11.3"
+  }
+}
