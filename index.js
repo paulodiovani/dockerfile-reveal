@@ -30,7 +30,7 @@ const parseInspect = (stdout) => {
     }
   }] = JSON.parse(stdout)
 
-  return { Line: [parseCmd(Cmd)], Parent, Tag }
+  return { Line: [Cmd ? parseCmd(Cmd) : null], Parent, Tag }
 }
 
 const recurse = ({Line, Parent, Tag}) => {
@@ -46,7 +46,8 @@ const recurse = ({Line, Parent, Tag}) => {
 
 const format = compose(
   (steps) => steps.join('\n'),
-  (steps) => steps.reverse()
+  (steps) => steps.reverse(),
+  (steps) => steps.filter((item) => !!item)
 )
 
 const revealDockerfile = (image) => {
