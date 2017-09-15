@@ -10,5 +10,8 @@
   "private": false,
   "engines": {
     "node": "~6.11.3"
+  },
+  "dependencies": {
+    "minimist": "^1.2.0"
   }
 }

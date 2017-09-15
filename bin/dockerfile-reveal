@@ -1,5 +1,30 @@
 #!/bin/env node
+const packageJson = require('../package.json')
+const minimist = require('minimist')
 const dockerfileReveal = require('../index')
+
+const argv = minimist(process.argv.slice(2), {
+  boolean: ['help'],
+  alias: {
+    help: ['h'],
+    version: ['v']
+  }
+})
+
+if (argv.version) {
+  console.log(`${packageJson.name}: v${packageJson.version}`)
+  process.exit(0)
+}
+
+if (argv.help || argv._.length === 0) {
+  console.log(`\
+Usage:  ${packageJson.name} [options] image
+Options:
+        -h, --help    Show this help
+        -v, --version Print version info
+  `)
+  process.exit(0)
+}
 
 dockerfileReveal(...process.argv.slice(2))
   .then(console.log)
